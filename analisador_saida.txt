@@ -1,0 +1,5 @@
+Posição(0)| NOME: PALAVRA_RESERVADA | Valor: return | Linha: 2
+Posição(1)| NOME: DELIMITADOR | Valor: """ | Linha: 2
+Posição(2)| NOME: STRING | Valor: oi | Linha: 2
+Posição(3)| NOME: DELIMITADOR | Valor: """ | Linha: 2
+Posição(4)| NOME: DELIMITADOR | Valor: ";" | Linha: 2

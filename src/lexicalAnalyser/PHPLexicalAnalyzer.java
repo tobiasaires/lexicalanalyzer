@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.io.Console;
 import java.io.File;
 import java.nio.file.Paths;
+import java.io.FileWriter;
 
 public class PHPLexicalAnalyzer {
     private ArrayList<String[]> tokenTable;
@@ -24,10 +25,29 @@ public class PHPLexicalAnalyzer {
     public ArrayList<String[]> printTokenTable() throws IOException{
         Token lexicalToken;
         Integer i = 0;
-        while ((lexicalToken = this.lexical.yylex()) != null) {
-        	 System.out.println("Posição("+i+")| NOME: "+lexicalToken.name+" | Valor: "+lexicalToken.value+" | Linha: "+String.valueOf(lexicalToken.line + 1 ));
-        	 i++;
-        }
+        try {
+            File myObj = new File("analisador_saida.txt");
+            if (myObj.createNewFile()) {
+              System.out.println("Arquivo Criado: " + myObj.getName());
+            } else {
+              System.out.println("Arquivo Atualizado");
+            }
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
+        try {
+            FileWriter myWriter = new FileWriter("analisador_saida.txt");
+            while ((lexicalToken = this.lexical.yylex()) != null) {
+           	 myWriter.write("Posição("+i+")| NOME: "+lexicalToken.name+" | Valor: "+lexicalToken.value+" | Linha: "+String.valueOf(lexicalToken.line + 1)+ "\n");
+           	 i++;
+           }
+            myWriter.close();
+            System.out.println("Tabela escrita com sucesso");
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
         return this.tokenTable;
     }
 
@@ -53,6 +73,5 @@ public class PHPLexicalAnalyzer {
 	    catch (IOException e) {
 	    	e.printStackTrace();
 	    	}
-	    System.exit(0);
     }
 }
