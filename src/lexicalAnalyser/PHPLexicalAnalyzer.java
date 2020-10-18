@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Console;
 import java.io.File;
 import java.nio.file.Paths;
 
@@ -20,7 +21,7 @@ public class PHPLexicalAnalyzer {
         }
     }
 
-    public ArrayList<String[]> getTokenTable() throws IOException{
+    public ArrayList<String[]> printTokenTable() throws IOException{
         Token lexicalToken;
         Integer i = 0;
         while ((lexicalToken = this.lexical.yylex()) != null) {
@@ -47,10 +48,11 @@ public class PHPLexicalAnalyzer {
 	    PHPLexicalAnalyzer php = new PHPLexicalAnalyzer(path);
 	    arquivoEntrada.close();
 	    try {
-	    	php.getTokenTable();
+	    	php.printTokenTable();
 	    } 
 	    catch (IOException e) {
 	    	e.printStackTrace();
 	    	}
+	    System.exit(0);
     }
 }
