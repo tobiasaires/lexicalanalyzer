@@ -1,7 +1,7 @@
 <?php
-//comentario
+//comentario linha
 /*
-comentario
+comentario bloco
 */
 $idade = 10.1;
 
@@ -27,32 +27,5 @@ else if($hora > 12 && $hora <= 18)
 else
   echo "noite";
 
-while($idade) {
-    echo $idade;
-}
-
-
-for($contador = 0; $contador < 10; $contador++)
-{
-  echo $contador;
-}
-
-$vetor = array(1, 2, 3, 4, 5);
-foreach($vetor as $item)
-{
-echo $item;
-}
-
-$i = 0;
-do {
-    echo $i;
-} while ($i > 0);
-
-$matriz = [[1,2,3], [4,5,6]];
-
-function($atributo)
-{
-    return $atributo;
-}
 
 ?>
